@@ -17,18 +17,18 @@ public class PaymentController {
 
 	@Autowired
 	PaymentService paymentService;
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity<PaymentResponse> getPaymentById(@PathVariable Long id){
-		
-		//map incoming data to internal request DTO
+	public ResponseEntity<PaymentResponse> getPaymentById(@PathVariable Long id) {
+
+		// map incoming data to internal request DTO
 		PaymentRequest internalRequestObject = new PaymentRequest();
 		internalRequestObject.setPaymentId(id);
-		
-		//pass this internalRequestObject to further layer for processing
+
+		// pass this internalRequestObject to further layer for processing
 		PaymentResponse paymentResponse = paymentService.getPaymentDetailsById(internalRequestObject);
-		
-		//return the Response DTO
+
+		// return the Response DTO
 		return ResponseEntity.ok(paymentResponse);
 	}
 }
