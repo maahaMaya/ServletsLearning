@@ -28,7 +28,7 @@ public class PaymentController {
 		// pass this internalRequestObject to further layer for processing
 		PaymentResponse paymentResponse = paymentService.getPaymentDetailsById(internalRequestObject);
 
-		// return the Response DTO
+		// return the Response DTO 
 		return ResponseEntity.ok(paymentResponse);
 	}
 }
